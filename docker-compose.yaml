@@ -185,6 +185,14 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
+  hive-conn-service:
+    user: root
+    build:
+      context: ./hive_conn_service
+      dockerfile: Dockerfile
+    # volumes:
+    # - /Users/nathanmeek/.aws:/root/.aws
+
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash
