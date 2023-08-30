@@ -190,9 +190,11 @@ services:
     build:
       context: ./hive_conn_service
       dockerfile: Dockerfile
-    # volumes:
-    # - /Users/nathanmeek/.aws:/root/.aws
-
+    tty: true
+    volumes:
+      - ./hive_conn_service/.aws:/root/.aws
+      - ./hive_conn_service/.kube:/root/.kube
+      
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash

@@ -12,7 +12,8 @@ normalize:
       method: thrift
       threads: "{{ env_var('DBT_THREADS', 8) | as_number }}"
       schema: "{{ env_var('PIPELINE_ENV', 'staging_pub') }}_{{ env_var('DBT_SCHEMA', 'analytics') }}"
-      host: "{{ env_var('DBT_HOST', 'localhost') }}"
+      # host: "{{ env_var('DBT_HOST', 'localhost') }}"
+      host: "hive-conn-service"
       port: 10000
 
   target: prod

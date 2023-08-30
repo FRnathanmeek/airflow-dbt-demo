@@ -6,6 +6,11 @@ airflow_settings.yaml
 *.pyc
 */__pycache__/*
 
+
+.aws
+.kube
+
+
 logs/*
 dbt/target/compiled/*
 dbt/target/run/*
