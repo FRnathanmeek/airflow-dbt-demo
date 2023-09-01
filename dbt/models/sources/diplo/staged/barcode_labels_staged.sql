@@ -1,3 +1,8 @@
+{{ config(
+    tags=["group_1"]
+) }}
+
+
 with source_cte as (
     select
     _cdc_timestamp,

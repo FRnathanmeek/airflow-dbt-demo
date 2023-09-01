@@ -14,9 +14,9 @@ Also prints out the airflow home directory
 """
 
 with DAG(
-    "dbt_basic_dag",
+    "dbt_test",
     start_date=datetime(2020, 12, 23),
-    description="A sample Airflow DAG to invoke dbt runs using a BashOperator",
+    description="An Airflow DAG to test connection to hive by running a dbt model",
     schedule_interval=None,
     catchup=False,
     default_args={
