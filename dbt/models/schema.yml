@@ -19744,7 +19744,7 @@ models:
   - tests_empty_table
 sources:
 - name: raw_data
-  schema: '{{ env_var(''PIPELINE_ENV'', ''stg'') }}_raw_data'
+  schema: '{{ env_var(''PIPELINE_ENV'', ''staging_pub'') }}_raw_data'
   tables:
   - name: entities
   - name: entities_assets

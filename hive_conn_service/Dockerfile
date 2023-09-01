@@ -13,3 +13,4 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv
 RUN unzip awscliv2.zip
 RUN ./aws/install
 
+ENTRYPOINT ["kubectl", "port-forward", "svc/hive2", "10000:10000", "--address", "0.0.0.0"]

@@ -3,8 +3,15 @@
 using py_airflow_dbt_310
 
 
+# TODO
+- Better parsing
+- Add parsing functions
 
 
+
+
+
+# ARCHIVE
 
 # Airflow DAGs for dbt
 

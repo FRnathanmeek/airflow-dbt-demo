@@ -78,6 +78,8 @@ class DbtDagParser:
         else:
             task_group = self.dbt_run_group
 
+        cmd = str("cd /opt/airflow/dbt && " + f"dbt run  --profiles-dir . --select {model_name} ")
+
         dbt_task = BashOperator(
             task_id=node_name,
             task_group=task_group,
@@ -92,9 +94,11 @@ class DbtDagParser:
             #     f"--profiles-dir {self.dbt_profiles_dir} --project-dir {self.dbt_project_dir}"
             # ),
             bash_command=(
-                f"echo 'dbt run  --profiles-dir {self.dbt_profiles_dir} --select {model_name}' "
-                f" ========================= "
-                f"dbt run  --profiles-dir {self.dbt_profiles_dir} --select {model_name} "
+                # f"echo 'dbt run  --profiles-dir . --select {model_name}' "
+                # f"echo 'dbt run  --profiles-dir {self.dbt_profiles_dir} --select {model_name}' "
+                # f" ========================= "
+                cmd
+                # f"dbt run  --profiles-dir {self.dbt_profiles_dir} --select {model_name} "
             ),
             env={
                 # "DBT_USER": "{{ conn.postgres.login }}",

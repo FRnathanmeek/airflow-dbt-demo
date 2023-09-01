@@ -185,11 +185,16 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
+# DEBUG If entrypoint doesn't work, try command (?)
   hive-conn-service:
+    # command:
+    #   - kubectl port-forward svc/hive2 10000:10000 --address 0.0.0.0
     user: root
     build:
       context: ./hive_conn_service
       dockerfile: Dockerfile
+    # command:
+    #   - kubectl port-forward svc/hive2 10000:10000 --address 0.0.0.0
     tty: true
     volumes:
       - ./hive_conn_service/.aws:/root/.aws
